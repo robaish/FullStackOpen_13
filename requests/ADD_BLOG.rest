@@ -4,5 +4,5 @@ Content-Type: application/json
 {
   "author": "Walt Whitman",
   "url": "url.blog/story",
-  "title": "A story"
+  "title": "New story"
 }
