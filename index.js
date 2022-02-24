@@ -60,17 +60,11 @@ app.post('/api/blogs', async (req, res) => {
 })
 
 app.delete('/api/blogs/:id', async (req, res) => {
-  console.log('logging here:', req.params.id)
-  try {
-    await Blog.destroy({
-      where: {
-        id: req.params.id
-      }
-    })
-    return res.status(204).end()
-  } catch (error) {
-    return res.status(400).json({ error })
+  const blog = await Blog.findByPk(req.params.id)
+  if (blog) {
+    await blog.destroy()
   }
+  res.status(204).end()
 })
 
 const PORT = process.env.PORT || 3001
