@@ -1,9 +1,14 @@
-const { user } = require('pg/lib/defaults')
 const { User } = require('../models/index')
+const { Blog } = require('../models/index')
 const router = require('express').Router()
 
 router.get('/', async (req, res) => {
-  const users = await User.findAll()
+  const users = await User.findAll({
+    include: {
+      model: Blog,
+      attributes: ['title']
+    }
+  })
   res.json(users)
 })
 
