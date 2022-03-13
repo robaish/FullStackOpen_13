@@ -3,7 +3,7 @@ const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 const { SECRET } = require('./config')
 
-const blogFinder = async (req, res, next) => {
+const blogFinder = async (req, _res, next) => {
   req.blog = await Blog.findByPk(req.params.id)
   next()
 }
@@ -24,7 +24,7 @@ const tokenExtractor = (req, res, next) => {
   next()
 }
 
-const errorHandler = async (error, req, res, next) => {
+const errorHandler = async (error, _req, res, next) => {
   console.log(error.message)
   
   if (error.name === 'SequelizeValidationError') {

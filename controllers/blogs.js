@@ -31,11 +31,18 @@ router.put('/:id', blogFinder, async (req, res) => {
   
 })
 
-router.delete('/:id', blogFinder, async (req, res) => {
-  if (req.blog) {
-    await req.blog.destroy()
+router.delete('/:id', blogFinder, tokenExtractor, async (req, res) => {
+  const user = await User.findByPk(req.decodedToken.id)
+
+  if (!req.blog) {
+    res.status(404).send('Blog not found.')
   }
-  res.status(204).end()
+  if (req.blog.userId === user.id) {
+    await req.blog.destroy()
+    res.status(204).end()
+  } else {
+    return res.status(401).send('Unauthorized - blog not created by user.')
+  }
 })
 
  module.exports = router
