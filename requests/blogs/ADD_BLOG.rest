@@ -3,7 +3,7 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IndpbGx5QHdvbmthLmNvbSIsImlkIjoxLCJpYXQiOjE2NDcxNzkyNzB9.8UUJToB9Mp9VmDdXHTkGfel4KGT7_rfY-CtuD1BkQ00
 
 {
-  "author": "Derek Sivers",
+  "author": "Roba",
   "url": "url.blog/something",
-  "title": "Whatever"
+  "title": "Some more React patterns"
 }

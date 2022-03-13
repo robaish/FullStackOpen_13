@@ -1,3 +1,4 @@
+const highlight = require('cli-highlight').highlight
 const Sequelize = require('sequelize')
 const { DATABASE_URL } = require('./config')
 
@@ -8,6 +9,9 @@ const sequelize = new Sequelize(DATABASE_URL, {
       rejectUnauthorized: false
     }
   },
+  logging(log) {
+    console.log(highlight(log, {language: 'sql', ignoreIllegals: true}))
+  }
 })
 
 const connectToDatabase = async () => {
