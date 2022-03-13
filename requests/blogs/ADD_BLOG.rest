@@ -1,8 +1,9 @@
 POST http://localhost:3001/api/blogs HTTP/1.1
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IndpbGx5QHdvbmthLmNvbSIsImlkIjoxLCJpYXQiOjE2NDcxNzkyNzB9.8UUJToB9Mp9VmDdXHTkGfel4KGT7_rfY-CtuD1BkQ00
 
 {
-  "author": "Walt Whitman",
-  "url": "url.blog/story",
-  "title": "New story"
+  "author": "Derek Sivers",
+  "url": "url.blog/something",
+  "title": "Whatever"
 }
